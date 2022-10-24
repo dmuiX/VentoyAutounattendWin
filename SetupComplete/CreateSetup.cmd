@@ -47,11 +47,7 @@ tar -xf %SETUPFILES%\office.zip -C %SETUPFILES%
 ::%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& '%PRESETUPDIR%\install.ps1' %*"
 
 :: install Scoop
-	::download install.ps1
-%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "((new-object net.webclient).DownloadFile('https://raw.githubusercontent.com/ScoopInstaller/Install/master/install.ps1','%PRESETUPDIR%\install.ps1'))"
-	::run installer
-%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& '%PRESETUPDIR%\install.ps1 >> $ENV:SYSTEMDRIVE/scoop_install.log; ($LASTEXITCODE -eq 0) ? Write-Output "Scoop was installed correctly" >> $ENV:SYSTEMDRIVE/scoop_install.log  : Write-Output "Scoop was not installed correctly" >> $ENV:SYSTEMDRIVE/scoop_install.log' %*"
-
+%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "((iex '& {$(irm get.scoop.sh)} -RunAsAdmin'))"
 :: push tag to stop
 echo stop > %systemroot%\DONE_SDI.tag
 
