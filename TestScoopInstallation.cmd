@@ -19,8 +19,8 @@ set log=%systemdrive%\%~n0.log
 	::download install.ps1
 %systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "((new-object net.webclient).DownloadFile('https://raw.githubusercontent.com/ScoopInstaller/Install/master/install.ps1','%SYSTEMDRIVE%\install.ps1'))"
 	::run installer
-%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& '%SYSTEMDRIVE%\install.ps1 >> %SYSTEMDRIVE%\scoop_install.log' %*"
-::&& ($LASTEXITCODE -eq 0) ? Write-Output "Scoop was installed correctly" >> $ENV:SYSTEMDRIVE/scoop_install.log  : Write-Output "Scoop was not installed correctly" >> $ENV:SYSTEMDRIVE/scoop_install.log
+%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& '%SYSTEMDRIVE%\install.ps1 > %SYSTEMDRIVE%\scoop_install.log' %*"
+::&& ($LASTEXITCODE -eq 0) ? Write-Output >Scoop was installed correctly" >> $ENV:SYSTEMDRIVE/scoop_install.log  : Write-Output "Scoop was not installed correctly" >> $ENV:SYSTEMDRIVE/scoop_install.log
 :: push tag to stop
 ::echo stop > %systemroot%\DONE_SDI.tag
 
