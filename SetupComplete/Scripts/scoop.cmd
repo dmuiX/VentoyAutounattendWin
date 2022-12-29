@@ -7,25 +7,26 @@ if %errorlevel% == 0 (
 set LogFile=%systemdrive%\%~n0.log
 set logg=^> _^&type _^&type _^>^>%LogFile
 
-scoop install git >> %logg%
-scoop bucket add extras >> %logg%
-scoop bucket add main >> %logg%
+call scoop install git %logg%
+call scoop bucket add extras %logg%
+call scoop bucket add main %logg%
 
-scoop install sudo >> %logg%
-scoop install clink >> %logg%
-clink autorun install >> %logg%
-scoop install firefox >> %logg%
-scoop install brave >> %logg%
-scoop install windows-terminal >> %logg%
+call scoop install sudo %logg%
+call scoop install clink %logg%
+clink autorun install %logg%
+call scoop install firefox %logg%
+call scoop install brave %logg%
+call scoop install windows-terminal %logg%
 
-scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools >> %logg%
-scoop install HashTab >> %logg%
-scoop install autodarkmode >> %logg%
-scoop install itunes-portable >> %logg%
-scoop install mediainfo >> %logg%
-scoop install advancedrenamer >> %logg%
-scoop install vscode >> %logg%
-scoop install treesize-free >> %logg%
-scoop install defraggler >> %logg%
-scoop install vmware-workstation-pro >> %logg%
+call scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools %logg%
+call scoop install HashTab %logg%
+call scoop install autodarkmode %logg%
+call scoop install itunes-portable %logg%
+call scoop install mediainfo %logg%
+call scoop install advancedrenamer %logg%
+call scoop install vscode %logg%
+call scoop install treesize-free %logg%
+call scoop install defraggler %logg%
+call scoop install vmware-workstation-pro %logg%
 )
+

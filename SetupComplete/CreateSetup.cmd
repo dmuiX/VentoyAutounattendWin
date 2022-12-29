@@ -1,7 +1,7 @@
-@echo off
+:: @echo off
 
 :: don't run this twice!
-if exist %systemroot%\DONE_SDI.tag exit
+:: if exist %systemroot%\DONE_SDI.tag exit
 
 :: set USB and location Dir
 set USB=%~d0
@@ -29,28 +29,30 @@ start /wait /b cmd /c %PRESETUPDIR%\connect_to_wifi.bat
 )
 
 :: download snappy
-START /WAIT %PRESETUPDIR%\wget.exe --no-check-certificate https://www.glenn.delahoy.com/downloads/sdio/SDIO_1.12.7.747.zip -O %PRESETUPDIR%\snappy.zip
+:: START /WAIT %PRESETUPDIR%\wget.exe --no-check-certificate https://www.glenn.delahoy.com/downloads/sdio/SDIO_1.12.7.747.zip -O %PRESETUPDIR%\snappy.zip
 :: extract snappy
-tar -xf %PRESETUPDIR%\snappy.zip -C %PRESETUPDIR%
+:: tar -xf %PRESETUPDIR%\snappy.zip -C %PRESETUPDIR%
 
-start /wait /b cmd /c %PRESETUPDIR%snappy.bat %PRESETUPDIR%
+:: start /wait /b cmd /c %PRESETUPDIR%snappy.bat %PRESETUPDIR%
 
 :: download Office Tools
-START /WAIT %PRESETUPDIR%\wget.exe --no-check-certificate "https://otp.landian.vip/redirect/download.php?type=runtime&site=github" -O %SETUPFILES%\office.zip
+:: START /WAIT %PRESETUPDIR%\wget.exe --no-check-certificate "https://otp.landian.vip/redirect/download.php?type=runtime&site=github" -O %SETUPFILES%\office.zip
 :: extract office
-tar -xf %SETUPFILES%\office.zip -C %SETUPFILES%
+:: tar -xf %SETUPFILES%\office.zip -C %SETUPFILES%
 
 :: install Choco
 	::download install.ps1
-::%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "((new-object net.webclient).DownloadFile('https://community.chocolatey.org/install.ps1','%PRESETUPDIR%\install.ps1'))"
+:: %systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "((new-object net.webclient).DownloadFile('https://community.chocolatey.org/install.ps1','%PRESETUPDIR%\install.ps1'))"
 	::run installer
-::%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& '%PRESETUPDIR%\install.ps1' %*"
+:: %systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& '%PRESETUPDIR%\install.ps1' %*"
 
 :: install Scoop
-%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "((iex '& {$(irm get.scoop.sh)} -RunAsAdmin'))"
+::%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "((iex '& {$(irm get.scoop.sh)} -RunAsAdmin'))"
+%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {irm get.scoop.sh -outfile 'install.ps1'}"
+%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {.\install.ps1 -RunAsAdmin}"
 :: push tag to stop
 echo stop > %systemroot%\DONE_SDI.tag
 
 echo "Successful executed" >> %log%
-
-exit
+pause
+::exit

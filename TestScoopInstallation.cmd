@@ -24,8 +24,9 @@ set log=%systemdrive%\%~n0.log
 
 	::run installer
 :: Installation of scoop cannot be run with admin rights instead you can use this:
-%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "((iex '& {$(irm get.scoop.sh)} -RunAsAdmin'))"
-
+:: Powershell -NoProfile -ExecutionPolicy Bypass -Command "((iex '& {$(irm get.scoop.sh)} -RunAsAdmin'))"
+%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {irm get.scoop.sh -outfile 'install.ps1'}" 
+%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {.\install.ps1 -RunAsAdmin}"
 ::%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& 'irm get.scoop.sh | iex' %*"
 ::&& ($LASTEXITCODE -eq 0) ? Write-Output >Scoop was installed correctly" >> $ENV:SYSTEMDRIVE/scoop_install.log  : Write-Output "Scoop was not installed correctly" >> $ENV:SYSTEMDRIVE/scoop_install.log
 :: push tag to stop
