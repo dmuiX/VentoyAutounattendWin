@@ -1,6 +1,7 @@
 {
     "control":[
         { "VTOY_DEFAULT_MENU_MODE": "1" },
+        { "VTOY_SORT_CASE_SENSITIVE": "1" },
         { "VTOY_DEFAULT_KBD_LAYOUT": "QWERTZ" },
         { "VTOY_DEFAULT_SEARCH_ROOT": "/ISO" }
     ],
