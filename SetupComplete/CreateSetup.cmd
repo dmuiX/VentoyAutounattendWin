@@ -42,9 +42,9 @@ start /wait /b cmd /c %PRESETUPDIR%\connect_to_wifi.bat
 
 :: install Choco
 	::download install.ps1
-:: %systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "((new-object net.webclient).DownloadFile('https://community.chocolatey.org/install.ps1','%PRESETUPDIR%\install.ps1'))"
+%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "((new-object net.webclient).DownloadFile('https://community.chocolatey.org/install.ps1','%PRESETUPDIR%\install.ps1'))"
 	::run installer
-:: %systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& '%PRESETUPDIR%\install.ps1' %*"
+%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& '%PRESETUPDIR%\install.ps1' %*"
 
 :: install Scoop
 ::%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "((iex '& {$(irm get.scoop.sh)} -RunAsAdmin'))"

@@ -56,12 +56,12 @@ wmic product where name="Teams Machine-Wide Installer" call uninstall
 if errorlevel 0 ( echo Deinstall Teams SUCCESS! %logg% )
 
 :: Install Apps using scoop
-echo Install Apps using scoop %logg%
-start /wait cmd /c %SETUPDIR%\Scripts\scoop.cmd
-if errorlevel 0 ( echo Install Apps using scoop SUCCESS! %logg% )
+:: echo Install Apps using scoop %logg%
+:: start /wait cmd /c %SETUPDIR%\Scripts\scoop.cmd
+:: if errorlevel 0 ( echo Install Apps using scoop SUCCESS! %logg% )
 
 :: Install Apps using Choco
-:: start /wait cmd /c %SETUPDIR%\Scripts\choco.cmd
+start /wait cmd /c %SETUPDIR%\Scripts\choco.cmd
 
 :: Clean up
 :: if exist "%SETUPDIR%\Ninite.exe" @DEL /S /Q "%SETUPDIR%\Ninite.exe"

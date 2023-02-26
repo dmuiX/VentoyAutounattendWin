@@ -10,3 +10,7 @@ $RECYCLE.BIN
 Old not working ventoy stuff
 .Trashes
 SetupComplete/Scripts/activateOffice.cmd
+._.idea
+vcs.xml
+modules.xml
+Ventoy.iml
