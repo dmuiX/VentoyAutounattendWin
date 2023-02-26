@@ -10,7 +10,6 @@ set SETUPDIR=%WINDIR%\SETUP\
 set SETUPFILES=%SETUPDIR%\SetupFiles\
 set PRESETUPDIR=%SETUPDIR%\PreSetup\
 
-
 :: create Temp folder and set log path
 ::md %systemdrive%\Temp > nul
 set log=%systemdrive%\%~n0.log
