@@ -1,4 +1,4 @@
-:: @echo off
+@echo off
 
 :: create Temp folder and set log path
 set LogFile=%systemdrive%\%~n0.log
@@ -10,17 +10,18 @@ set SETUPDIR=%SystemRoot%\Setup\
 set SETUPFILES=%SETUPDIR%\SetupFiles\
 
 :: Install Office 2021 using Office Tool Plus https://help.coolhub.top/others/commands.html#deploy-commands
-echo Install Office %logg%
-"%SETUPFILES%\Office Tool\Office Tool Plus.Console.exe" deploy /addProduct O365ProPlusRetail_en-us_Publisher,Lync,Access,OneNote /channel Current /clientEdition 64 /acceptEULA
-if errorlevel 0 ( echo Install Office SUCCESS! %logg% )
+::echo Install Office %logg%
+::"%SETUPFILES%\Office Tool\Office Tool Plus.Console.exe" deploy /addProduct O365ProPlusRetail_en-us_Publisher,Lync,Access,OneNote /channel Current /clientEdition 64 /acceptEULA
+::if errorlevel 0 ( echo Install Office SUCCESS! %logg% )
 
 :: Activate Office and Windows at this place using certain tools
-echo Activate Office %logg%
-start /wait cmd /c %SETUPDIR%\Scripts\activateOffice.cmd
-if errorlevel 0 ( echo Activate Office SUCCESS! %logg% )
+::echo Activate Office %logg%
+::start /wait cmd /c %SETUPDIR%\Scripts\activateOffice.cmd
+::if errorlevel 0 ( echo Activate Office SUCCESS! %logg% )
 
 :: Add some registry entries
 echo Add registry entries %logg%
+reg add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /v ConfigureStartPins /d '{\"pinnedList\": [{}]}' /t REG_SZ /f
 reg add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v DisableWindowsConsumerFeatures /d 1 /t REG_DWORD /f
 reg add "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /v DisableWindowsConsumerFeatures /d 1 /t REG_DWORD /f
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v ContentDeliveryAllowed /d 0 /t REG_DWORD /f
@@ -71,6 +72,6 @@ start /wait cmd /c %SETUPDIR%\Scripts\choco.cmd
 
 pause
 :: Reboot
-::shutdown /r /t 15
+shutdown /r /t 15
 
 ::exit /b

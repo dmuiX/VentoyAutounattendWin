@@ -1,7 +1,7 @@
-:: @echo off
+@echo off
 
 :: don't run this twice!
-:: if exist %systemroot%\DONE_SDI.tag exit
+if exist %systemroot%\DONE_SDI.tag exit
 
 :: set USB and location Dir
 set USB=%~d0
@@ -47,11 +47,11 @@ start /wait /b cmd /c %PRESETUPDIR%\connect_to_wifi.bat
 
 :: install Scoop
 ::%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "((iex '& {$(irm get.scoop.sh)} -RunAsAdmin'))"
-%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {irm get.scoop.sh -outfile 'install.ps1'}"
-%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {.\install.ps1 -RunAsAdmin}"
+::%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {irm get.scoop.sh -outfile 'install.ps1'}"
+::%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& {.\install.ps1 -RunAsAdmin}"
 :: push tag to stop
 echo stop > %systemroot%\DONE_SDI.tag
 
 echo "Successful executed" >> %log%
-pause
-::exit
+::pause
+exit

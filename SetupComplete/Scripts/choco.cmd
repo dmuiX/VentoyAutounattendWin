@@ -11,7 +11,7 @@ choco install choco-cleaner -y -r %log%
 choco install firefox -y -r %log%
 choco install microsoft-windows-terminal -y -r %log%
 choco install hashtab -y -r %log%
-choco install 7z -y -r %log%
+choco install 7zip -y -r %log%
 choco install auto-dark-mode -y -r %log%
 choco install itunes -y -r %log%
 choco install mediainfo -y -r %log%
@@ -26,4 +26,5 @@ choco install logitech-options -y -r %log%
 choco install teracopy -y -r %log%
 choco install partitionwizard -y -r %log%
 choco install git -y -r %log%
+choco install choco-cleaner -y -r %log%
 )
