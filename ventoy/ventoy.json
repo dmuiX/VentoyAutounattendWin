@@ -1,31 +1,26 @@
 {
     "control":[
         { "VTOY_DEFAULT_MENU_MODE": "1" },
-        { "VTOY_WIN11_BYPASS_CHECK": "1" },
-        { "VTOY_DEFAULT_SEARCH_ROOT": "/ISO" },
-        { "VTOY_FILT_DOT_UNDERSCORE_FILE": "1" },
-        { "VTOY_SORT_CASE_SENSITIVE": "0" },
-        { "VTOY_MAX_SEARCH_LEVEL": "max" },
         { "VTOY_DEFAULT_KBD_LAYOUT": "QWERTZ" },
-        { "VTOY_MENU_TIMEOUT": "10" },
-        { "VTOY_FILE_FLT_EFI": "1" },
-        { "VTOY_DEFAULT_IMAGE": "/ISO/Win11/Win11_22H2_English_x64.iso" }
+        { "VTOY_DEFAULT_SEARCH_ROOT": "/ISO" }
     ],
     "auto_install":[
         {
             "parent": "/ISO/Win10",
             "template":[
-                "/ventoy/config/Win10/Disk1_ENG_Win10.xml",
-                "/ventoy/config/Win10/Disk1_GER_Win10.xml",
-                "/ventoy/config/Win10/ManualDisk_ENG_Win10.xml",
-                "/ventoy/config/Win10/ManualDisk_GER_Win10.xml"
-            ],
+                "/ventoy/autounattend/Win10/Disk1_ENG_Win10.xml",
+                "/ventoy/autounattend/Win10/Disk1_GER_Win10.xml",
+                "/ventoy/autounattend/Win10/ManualDisk_ENG_Win10.xml",
+                "/ventoy/autounattend/Win10/ManualDisk_GER_Win10.xml"
+            ]
+        },
+        {
             "parent": "/ISO/Win11",
             "template":[
-                "/ventoy/config/Win11/Disk1_Win11_ENG.xml",
-                "/ventoy/config/Win11/Disk1_GER_Win11.xml",
-                "/ventoy/config/Win11/ManualDisk_ENG_Win11.xml",
-                "/ventoy/config/Win11/ManualDisk_GER_Win11.xml"
+                "/ventoy/autounattend/Win11/Disk1_ENG_Win11.xml",
+                "/ventoy/autounattend/Win11/Disk1_GER_Win11.xml",
+                "/ventoy/autounattend/Win11/ManualDisk_ENG_Win11.xml",
+                "/ventoy/autounattend/Win11/ManualDisk_GER_Win11.xml"
             ]
         }
     ]

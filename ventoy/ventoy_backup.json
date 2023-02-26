@@ -1,15 +1,26 @@
 {
     "control":[
         { "VTOY_DEFAULT_MENU_MODE": "1" },
-        { "VTOY_DEFAULT_SEARCH_ROOT": "/ISO" },
-        { "VTOY_WIN11_BYPASS_CHECK": "1" }
+        { "VTOY_DEFAULT_KBD_LAYOUT": "QWERTZ" },
+        { "VTOY_DEFAULT_SEARCH_ROOT": "/ISO" }
     ],
     "auto_install":[
         {
             "parent": "/ISO/Win10",
             "template":[
-                "/ventoy/config/Disk1_GER.xml",
-                "/ventoy/config/ManualDisk_GER.xml"
+                "/ventoy/autounattend/Win10/Disk1_ENG_Win10.xml",
+                "/ventoy/autounattend/Win10/Disk1_GER_Win10.xml",
+                "/ventoy/autounattend/Win10/ManualDisk_ENG_Win10.xml",
+                "/ventoy/autounattend/Win10/ManualDisk_GER_Win10.xml"
+            ]
+        },
+        {
+            "parent": "/ISO/Win11",
+            "template":[
+                "/ventoy/autounattend/Win11/Disk1_ENG_Win11.xml",
+                "/ventoy/autounattend/Win11/Disk1_GER_Win11.xml",
+                "/ventoy/autounattend/Win11/ManualDisk_ENG_Win11.xml",
+                "/ventoy/autounattend/Win11/ManualDisk_GER_Win11.xml"
             ]
         }
     ]
